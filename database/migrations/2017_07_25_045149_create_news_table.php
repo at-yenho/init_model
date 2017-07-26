@@ -17,8 +17,13 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('content');
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
+        });
+        Schema::table('news', function(Blueprint $table) {
+            $table->foreign('category_id')->references('id')->on('categories')
+                        ->onDelete('restrict')
+                        ->onUpdate('restrict');
         });
     }
 
@@ -29,6 +34,9 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
+        Schema::table('news', function(Blueprint $table) {
+            $table->dropForeign('news_category_id_foreign');
+        }); 
         Schema::dropIfExists('news');
     }
 }

@@ -18,9 +18,14 @@ class CreateHotelsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('star');
-            $table->string('introduce');
-            $table->integer('place_id');
+            $table->string('introduce')->nullable();
+            $table->integer('place_id')->unsigned();
             $table->timestamps();
+        });
+        Schema::table('hotels', function(Blueprint $table) {
+            $table->foreign('place_id')->references('id')->on('places')
+                        ->onDelete('restrict')
+                        ->onUpdate('restrict');
         });
     }
 
@@ -31,6 +36,9 @@ class CreateHotelsTable extends Migration
      */
     public function down()
     {
+        Schema::table('hotels', function(Blueprint $table) {
+            $table->dropForeign('hotels_place_id_foreign');
+        });  
         Schema::dropIfExists('hotels');
     }
 }

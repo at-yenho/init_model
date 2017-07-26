@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string("full_name");
             $table->string("email");
             $table->string("phone");
-            $table->boolean("is_active");
-            $table->boolean("is_admin");
+            $table->boolean("is_active")->default(false);
+            $table->boolean("is_admin")->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
