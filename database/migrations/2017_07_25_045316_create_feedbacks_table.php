@@ -17,8 +17,8 @@ class CreateFeedbacksTable extends Migration
             $table->increments('id');
             $table->string("full_name");
             $table->string("email");
-            $table->string("content");
-            $table->timestamps();
+            $table->text("content");
+            $table->timestamp('created_at');
         });
     }
 

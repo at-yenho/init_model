@@ -17,12 +17,12 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('hotel_id')->unsigned();
-            $table->string('descript')->nullable();
+            $table->text('descript')->nullable();
             $table->float('price');
             $table->string('size')->nullable();
             $table->integer('total');
             $table->string('bed')->nullable();
-            $table->string('direction')->nullable();
+            $table->text('direction')->nullable();
             $table->integer('max_guest');
             $table->timestamps();
             $table->foreign('hotel_id')->references('id')->on('hotels')

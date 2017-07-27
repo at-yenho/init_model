@@ -20,7 +20,7 @@ class CreateRatingCommentsTable extends Migration
             $table->integer('comfort');
             $table->integer('location');
             $table->integer('service');
-            $table->string('comment')->nullable();
+            $table->text('comment')->nullable();
             $table->float('total_rating');
             $table->integer('hotel_id')->unsigned();
             $table->integer('user_id')->unsigned();

@@ -19,7 +19,7 @@ class CreateReservationsTable extends Migration
             $table->integer('room_id')->unsigned();
             $table->string('target');
             $table->integer('target_id');
-            $table->string('request')->nullable();
+            $table->text('request')->nullable();
             $table->integer('quantity');
             $table->datetime('checkin_date');
             $table->datetime('checkout_date');
