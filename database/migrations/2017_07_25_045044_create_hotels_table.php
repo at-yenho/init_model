@@ -22,8 +22,8 @@ class CreateHotelsTable extends Migration
             $table->integer('place_id')->unsigned();
             $table->timestamps();
             $table->foreign('place_id')->references('id')->on('places')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

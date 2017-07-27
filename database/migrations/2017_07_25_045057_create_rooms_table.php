@@ -26,8 +26,8 @@ class CreateRoomsTable extends Migration
             $table->integer('max_guest');
             $table->timestamps();
             $table->foreign('hotel_id')->references('id')->on('hotels')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

@@ -25,8 +25,8 @@ class CreateReservationsTable extends Migration
             $table->datetime('checkout_date');
             $table->timestamps();
             $table->foreign('room_id')->references('id')->on('rooms')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

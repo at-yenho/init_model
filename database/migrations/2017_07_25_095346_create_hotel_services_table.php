@@ -19,11 +19,11 @@ class CreateHotelServicesTable extends Migration
             $table->integer('service_id')->unsigned();
             $table->timestamps();
             $table->foreign('hotel_id')->references('id')->on('hotels')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->foreign('service_id')->references('id')->on('services')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

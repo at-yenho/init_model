@@ -28,11 +28,11 @@ class CreateRatingCommentsTable extends Migration
         });
         Schema::table('rating_comments', function(Blueprint $table) {
             $table->foreign('hotel_id')->references('id')->on('hotels')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->foreign('user_id')->references('id')->on('users')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
