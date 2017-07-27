@@ -12,9 +12,6 @@ class StaticPagesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Model::unguard();
-        // factory(App\StaticPage::class, 15)->create();//save into database
-        // Model::reguard();
         DB::table('static_pages')->insert([[
             'title' => 'Introduction',
             'content' => 'This is company which was born in 2005',

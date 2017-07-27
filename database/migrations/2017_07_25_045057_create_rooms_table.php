@@ -25,11 +25,9 @@ class CreateRoomsTable extends Migration
             $table->string('direction')->nullable();
             $table->integer('max_guest');
             $table->timestamps();
-        });
-        Schema::table('rooms', function(Blueprint $table) {
             $table->foreign('hotel_id')->references('id')->on('hotels')
-                        ->onDelete('restrict')
-                        ->onUpdate('restrict');
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
         });
     }
 
@@ -40,9 +38,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::table('rooms', function(Blueprint $table) {
-            $table->dropForeign('rooms_hotel_id_foreign');
-        }); 
         Schema::dropIfExists('rooms');
     }
 }

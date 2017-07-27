@@ -13,7 +13,7 @@ class ReservationsTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\Reservation::class, 15)->create();//save into database
+        factory(App\Model\Reservation::class, 15)->create();
         Model::reguard();
     }
 }

@@ -13,7 +13,7 @@ class PlacesTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\Place::class, 15)->create();//save into database
+        factory(App\Model\Place::class, 10)->create();
         Model::reguard();
     }
 }

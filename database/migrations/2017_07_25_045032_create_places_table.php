@@ -17,7 +17,7 @@ class CreatePlacesTable extends Migration
             $table->increments("id");
             $table->string("name");
             $table->string("descript")->nullable();
-	    $table->integer("parent_id")->nullable();
+            $table->integer("parent_id")->nullable();
             $table->timestamps();
         });
     }

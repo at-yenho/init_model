@@ -24,11 +24,9 @@ class CreateReservationsTable extends Migration
             $table->datetime('checkin_date');
             $table->datetime('checkout_date');
             $table->timestamps();
-        });
-        Schema::table('reservations', function(Blueprint $table) {
             $table->foreign('room_id')->references('id')->on('rooms')
-                        ->onDelete('restrict')
-                        ->onUpdate('restrict');
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
         });
     }
 
@@ -39,9 +37,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function(Blueprint $table) {
-            $table->dropForeign('reservations_room_id_foreign');
-        }); 
         Schema::dropIfExists('reservations');
     }
 }

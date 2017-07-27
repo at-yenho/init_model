@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\User::class, 15)->create();//save into database
+        factory(App\Model\User::class, 15)->create();
         Model::reguard();
     }
 }

@@ -13,7 +13,7 @@ class RatingCommentTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\RatingComment::class, 15)->create();//save into database
+        factory(App\Model\RatingComment::class, 15)->create();
         Model::reguard();
     }
 }

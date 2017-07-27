@@ -21,11 +21,9 @@ class CreateHotelsTable extends Migration
             $table->string('introduce')->nullable();
             $table->integer('place_id')->unsigned();
             $table->timestamps();
-        });
-        Schema::table('hotels', function(Blueprint $table) {
             $table->foreign('place_id')->references('id')->on('places')
-                        ->onDelete('restrict')
-                        ->onUpdate('restrict');
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
         });
     }
 
@@ -35,10 +33,7 @@ class CreateHotelsTable extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::table('hotels', function(Blueprint $table) {
-            $table->dropForeign('hotels_place_id_foreign');
-        });  
+    { 
         Schema::dropIfExists('hotels');
     }
 }

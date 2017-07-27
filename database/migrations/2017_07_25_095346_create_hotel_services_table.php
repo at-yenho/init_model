@@ -18,14 +18,12 @@ class CreateHotelServicesTable extends Migration
             $table->integer('hotel_id')->unsigned();
             $table->integer('service_id')->unsigned();
             $table->timestamps();
-        });
-        Schema::table('hotel_services', function(Blueprint $table) {
             $table->foreign('hotel_id')->references('id')->on('hotels')
-                        ->onDelete('restrict')
-                        ->onUpdate('restrict');
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
             $table->foreign('service_id')->references('id')->on('services')
-                        ->onDelete('restrict')
-                        ->onUpdate('restrict');
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
         });
     }
 
@@ -36,12 +34,6 @@ class CreateHotelServicesTable extends Migration
      */
     public function down()
     {
-        Schema::table('hotel_services', function(Blueprint $table) {
-            $table->dropForeign('hotels_services_hotel_id_foreign');
-        });
-        Schema::table('hotels_services', function(Blueprint $table) {
-            $table->dropForeign('hotels_services_service_id_foreign');
-        });
         Schema::dropIfExists('rating_comment');
     }
 }

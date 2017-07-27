@@ -13,7 +13,7 @@ class FeedbacksTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\Feedback::class, 15)->create();//save into database
+        factory(App\Model\Feedback::class, 15)->create();
         Model::reguard();
     }
 }

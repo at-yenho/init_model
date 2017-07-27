@@ -13,7 +13,7 @@ class RoomsTableSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(App\Room::class, 15)->create();//save into database
+        factory(App\Model\Room::class, 15)->create();
         Model::reguard();
     }
 }
