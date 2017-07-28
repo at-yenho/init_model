@@ -57,7 +57,6 @@ $factory->define(App\Model\Room::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->unique()->randomLetter,
-        //randomElements($array = array ('a','b','c'), $count = 1) ,
         'hotel_id' => App\Model\Hotel::all()->random()->id,
         'descript' => $faker->text,
         'price' => $faker->numberBetween($min = 1, $max = 10),

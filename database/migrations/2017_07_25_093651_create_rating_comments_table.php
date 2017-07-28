@@ -25,8 +25,6 @@ class CreateRatingCommentsTable extends Migration
             $table->integer('hotel_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
-        });
-        Schema::table('rating_comments', function(Blueprint $table) {
             $table->foreign('hotel_id')->references('id')->on('hotels')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
@@ -43,13 +41,6 @@ class CreateRatingCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('rating_comment', function(Blueprint $table) {
-            $table->dropForeign('rating_comment_hotel_id_foreign');
-        }); 
-        Schema::table('rating_comment', function(Blueprint $table) {
-            $table->dropForeign('rating_comment_user_id_foreign');
-        });
         Schema::dropIfExists('rating_comment');
-        //
     }
 }

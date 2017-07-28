@@ -34,6 +34,6 @@ class CreateHotelServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rating_comment');
+        Schema::dropIfExists('hotel_services');
     }
 }
