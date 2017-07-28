@@ -5,7 +5,7 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Hotel extends Model
+class StaticPage extends Model
 {
     use Sluggable;
 
@@ -18,7 +18,7 @@ class Hotel extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'title'
             ]
         ];
     }

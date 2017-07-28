@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class HotelsTableSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class HotelsTableSeeder extends Seeder
     {
         Model::unguard();
         factory(App\Model\Hotel::class, 15)->create();
+        $slug = SlugService::createSlug(App\Model\Hotel::class, 'slug', 'My First Hotel');
         Model::reguard();
     }
 }

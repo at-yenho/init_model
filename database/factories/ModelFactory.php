@@ -79,6 +79,13 @@ $factory->define(App\Model\Reservation::class, function (Faker\Generator $faker)
     ];
 });
 
+$factory->define(App\Model\Category::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word,
+    ];
+});
+
 $factory->define(App\Model\News::class, function (Faker\Generator $faker) {
 
     return [
@@ -87,6 +94,15 @@ $factory->define(App\Model\News::class, function (Faker\Generator $faker) {
         'category_id' => App\Model\Category::all()->random()->id,
     ];
 });
+
+$factory->define(App\Model\StaticPage::class, function (Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->sentence,
+        'content' => $faker->text,
+    ];
+});
+
 
 $factory->define(App\Model\Feedback::class, function (Faker\Generator $faker) {
 

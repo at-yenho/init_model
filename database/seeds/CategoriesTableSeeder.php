@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -12,10 +13,11 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([[
-            'name' => 'Promotion',
-        ],[
-            'name' => 'Event',
-        ]]);
+
+        Model::unguard();
+        factory(App\Model\Category::class, 15)->create();
+        $slug = SlugService::createSlug(App\Model\Category::class, 'slug', 'My First StaticPage');
+        Model::reguard();
+
     }
 }
